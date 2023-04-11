@@ -1,4 +1,4 @@
-defmodule Ttt do
+defmodule TTT do
   def new_board do
     for col <- 1..3,
         row <- 1..3,
@@ -17,12 +17,30 @@ defmodule Ttt do
   end
 
   def fill_example_1(board) do
-    xs = [{1, 1}, {2, 2}, {3, 3}]
-    ys = [{2, 1}, {3, 1}, {1, 2}]
+    one = [{1, 1}]
+    two = [{2, 1}]
+    three = [{3, 1}]
+    four = [{1, 2}]
+    five = [{2, 2}]
+    six = [{3, 2}]
+    seven = [{1, 3}]
+    eight = [{2, 3}]
+    nine = [{3, 3}]
 
-    board
-    |> fill(xs, "X")
-    |> fill(ys, "O")
+    board_map =
+      board
+      |> fill(one, "1")
+      |> fill(two, "2")
+      |> fill(three, "3")
+      |> fill(four, "4")
+      |> fill(five, "5")
+      |> fill(six, "6")
+      |> fill(seven, "7")
+      |> fill(eight, "8")
+      |> fill(nine, "9")
+
+    print(board_map)
+    TTT.PlayersTurn.player_1_turn(board_map)
   end
 
   def print(board) do
@@ -39,6 +57,5 @@ defmodule Ttt do
   def run do
     new_board()
     |> fill_example_1()
-    |> print
   end
 end
